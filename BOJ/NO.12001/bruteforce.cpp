@@ -34,9 +34,6 @@ typedef vector<string> vs;
 typedef vector<pair<int, int > >vii;
 typedef set<int> seti;
 const int INF = 0x7fffffff;
-int dx[4] = { 1,-1,-1,1 };
-int dy[4] = { 1,1,-1,-1 };
-int dz[2] = { -1, 1 };
 /* -----구현부----- */
 int n, m,res = INF,resi = INF;
 vii v;
