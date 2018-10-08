@@ -1,6 +1,6 @@
 /*
   문제 : https://www.acmicpc.net/problem/3197
-  풀이 : 어렵다. 빙판이 녹는 시간을 기록하고, 1~MAX_DAY까지 이분탐색으로 적절한 DAY를 찾는다.
+  풀이 : 어렵다. 빙판이 녹는 시간을 기록하고, 1~MAX_DAY범위를 이분탐색으로 적절한 DAY를 찾는다.
 */
 #include<iostream>
 #include<vector>
