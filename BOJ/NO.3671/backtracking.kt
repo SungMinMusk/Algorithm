@@ -23,11 +23,10 @@ fun eratos()
                 prime[j] = false
         i++
     }
-
 }
+
 fun ans(tmp:String)
 {
-
     if(tmp.length>=1 && prime[tmp.toInt()]==true && visit[tmp.toInt()]==false)
     {
         visit[tmp.toInt()]=true
@@ -44,8 +43,8 @@ fun ans(tmp:String)
             visit_index[i] = false
         }
     }
-
 }
+
 fun main(args:Array<String>)
 {
     eratos()
