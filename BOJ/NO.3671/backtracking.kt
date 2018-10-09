@@ -48,7 +48,6 @@ fun ans(tmp:String)
 }
 fun main(args:Array<String>)
 {
-
     eratos()
     var sc = Scanner(System.`in`)
     var n = sc.nextInt()
