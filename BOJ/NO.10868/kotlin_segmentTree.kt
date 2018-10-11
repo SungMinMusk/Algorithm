@@ -14,12 +14,11 @@ fun min(a:Int,b:Int) = if(a>b) b else a
 fun MIN(L:Int,R:Int,node:Int,nl:Int,nr:Int) : Int
 {
     if(R<nl || L>nr) return INF
-    if(L <= nl && nr <= R) return arr[node]
+    if(nl in L..R && nr in L..R) return arr[node]
     var mid = (nl+nr)/2
     return min(MIN(L,R,node*2,nl,mid),
             MIN(L,R,node*2+1,mid+1,nr))
 }
-
 fun update(i:Int,v:Int)
 {
     var a=i
