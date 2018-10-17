@@ -1,7 +1,7 @@
 /*
-  문제 : https://www.acmicpc.net/problem/14890
-  풀이 : 높이가 낮아지면 경사로의 길이만큼 평지인지 탐색, 높이가 높아지면 지금까지 L길이의 평지인지 확인
-    계속 평지인 경우 평지의 길이를 계속 누적해간다.
+문제 : https://www.acmicpc.net/problem/14890
+풀이 : 높이가 낮아지면 경사로의 길이만큼 평지인지 탐색, 높이가 높아지면 지금까지 L길이의 평지인지 확인
+계속 평지인 경우 평지의 길이를 계속 누적해간다.
 */
 #include<iostream>
 #include<vector>
@@ -38,35 +38,34 @@ int dx[4] = { 1,-1,0,0 };
 int dy[4] = { 0,0,1,-1 };
 int dz[2] = { -1, 1 };
 /* -----구현부----- */
-int arr[102][102],n,l,res;
+int arr[102][102], n, l, res;
 void ansY(int x, int y)
 {
 	int cont = 1;
 	while (1)
 	{
 		//평지
-		if (arr[x][y+1] == arr[x][y])
+		if (arr[x][y + 1] == arr[x][y])
 		{
 			cont++;
 			y++;
 		}
 		//정지
-		else if (arr[x][y+1] == 0)
+		else if (arr[x][y + 1] == 0)
 			break;
-
 		//내려갈때
-		else if (arr[x][y+1] == arr[x][y] - 1)
+		else if (arr[x][y + 1] == arr[x][y] - 1)
 		{
 			FOR(i, 1, l)
 			{
-				if (arr[x][y+i] != arr[x][y] - 1 || arr[x][y+i] == 0)
+				if (arr[x][y + i] != arr[x][y] - 1 || arr[x][y + i] == 0)
 					return;
 			}
 			y += l;
 			cont = 0;
 		}
 		//올라감
-		else if (arr[x][y+1] == arr[x][y] + 1)
+		else if (arr[x][y + 1] == arr[x][y] + 1)
 		{
 			if (cont >= l)
 			{
@@ -79,7 +78,7 @@ void ansY(int x, int y)
 	}
 	res++;
 }
-void ansX(int x,int y)
+void ansX(int x, int y)
 {
 	int cont = 1;
 	while (1)
@@ -93,13 +92,12 @@ void ansX(int x,int y)
 		//정지
 		else if (arr[x + 1][y] == 0)
 			break;
-
 		//내려갈때
 		else if (arr[x + 1][y] == arr[x][y] - 1)
 		{
 			FOR(i, 1, l)
 			{
-				if (arr[x+i][y] != arr[x][y] - 1 || arr[x+i][y] == 0)
+				if (arr[x + i][y] != arr[x][y] - 1 || arr[x + i][y] == 0)
 					return;
 			}
 			x += l;
@@ -125,11 +123,11 @@ int main()
 	cin >> n >> l;
 	FOR(i, 1, n)
 		FOR(j, 1, n)
-			cin >> arr[i][j];
+		cin >> arr[i][j];
 
-	FOR(i, 1, n) 
-	{ 
-		ansX(1, i); 
+	FOR(i, 1, n)
+	{
+		ansX(1, i);
 		ansY(i, 1);
 	}
 	cout << res;
