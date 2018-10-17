@@ -1,7 +1,7 @@
 /*
-문제 : https://www.acmicpc.net/problem/14890
-풀이 : 높이가 낮아지면 경사로의 길이만큼 평지인지 탐색, 높이가 높아지면 지금까지 L길이의 평지인지 확인
-계속 평지인 경우 평지의 길이를 계속 누적해간다.
+	문제 : https://www.acmicpc.net/problem/14890
+	풀이 : 높이가 낮아지면 경사로의 길이만큼 평지인지 탐색, 높이가 높아지면 지금까지 L길이의 평지인지 확인
+		계속 평지인 경우 평지의 길이를 계속 누적해간다.
 */
 #include<iostream>
 #include<vector>
@@ -57,10 +57,8 @@ void ansY(int x, int y)
 		else if (arr[x][y + 1] == arr[x][y] - 1)
 		{
 			FOR(i, 1, l)
-			{
 				if (arr[x][y + i] != arr[x][y] - 1 || arr[x][y + i] == 0)
 					return;
-			}
 			y += l;
 			cont = 0;
 		}
@@ -96,10 +94,8 @@ void ansX(int x, int y)
 		else if (arr[x + 1][y] == arr[x][y] - 1)
 		{
 			FOR(i, 1, l)
-			{
 				if (arr[x + i][y] != arr[x][y] - 1 || arr[x + i][y] == 0)
 					return;
-			}
 			x += l;
 			cont = 0;
 		}
