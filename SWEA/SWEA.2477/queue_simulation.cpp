@@ -129,10 +129,8 @@ int main()
 			{
 				int sum = 0;
 				FOR(i, 1, k)
-				{
 					if (visit[i].first == x && visit[i].second == y)
 						sum += i;
-				}
 				if(sum)
 					cout << "#" << z << " " << sum << endl;
 				if(!sum)
