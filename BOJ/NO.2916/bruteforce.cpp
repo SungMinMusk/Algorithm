@@ -66,7 +66,7 @@ int main()
 				}
 				if (now-i>=0 && !visit[(now - i) % 360])
 				{
-					q.push((now-i) % 360);
+					q.push((now - i) % 360);
 					visit[(now - i) % 360] = 1;
 				}
 			}
