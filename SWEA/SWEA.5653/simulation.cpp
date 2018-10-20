@@ -69,7 +69,7 @@ void ans()
 
 		while(size--)
 		{
-			ell now = q.front();
+			cell now = q.front();
 			q.pop();
 			if (arr[now.x][now.y].first != now.life) continue;
 	
