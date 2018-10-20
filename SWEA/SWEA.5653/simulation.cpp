@@ -41,12 +41,12 @@ int dy[4] = { 0,0,1,-1 };
 int dz[2] = { -1, 1 };
 /* -----구현부----- */
 int n, m, k, res, global_time;
-typedef struct sell
+typedef struct cell
 {
 	int life, time ,x, y;
 };
 pii arr[500][500];
-queue<sell> q;
+queue<cell> q;
 void result()
 {
 	FOR(i,0,499)
@@ -69,7 +69,7 @@ void ans()
 
 		while(size--)
 		{
-			sell now = q.front();
+			ell now = q.front();
 			q.pop();
 			if (arr[now.x][now.y].first != now.life) continue;
 	
