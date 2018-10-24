@@ -1,6 +1,6 @@
 /*
   문제 : https://www.acmicpc.net/problem/5373
-  풀이 : 큐브를 회전할때 바뀌는 위치를 전부 해본다. 
+  풀이 : 큐브를 회전할때 바뀌는 위치를 전부 해본다. 반시계 방향 = 시계 방향 3번과 같다.
   -삼성 기출문제-
 */
 #include<iostream>
@@ -20,7 +20,7 @@ int dy[4] = { 0,0,1,-1 };
 int dz[2] = { -1, 1 };
 /* -----구현부----- */
 char arr[7][10];
-int d[2][9] = { {7,4,1,8,5,2,9,6,3},{3,6,9,2,5,8,1,4,7 } };
+int d[9] = {  7,4,1,8,5,2,9,6,3  };
 void init()
 {
 	FOR(j, 1, 9) arr[1][j] = 'r';
@@ -30,13 +30,13 @@ void init()
 	FOR(j, 1, 9) arr[5][j] = 'y';
 	FOR(j, 1, 9) arr[6][j] = 'w';
 }
-void ans(char a, char b)
+void ans(char a)
 {
-	if (a == 'U' && b == '+')
+	if (a == 'U')
 	{
 		int tmp[9];
 		FOR(i, 0, 8)
-			tmp[i] = arr[6][d[0][i]];
+			tmp[i] = arr[6][d[i]];
 		FOR(i, 1, 9)
 			arr[6][i] = tmp[i - 1];
 		int a = arr[4][3], b = arr[4][2], c = arr[4][1];
@@ -56,35 +56,11 @@ void ans(char a, char b)
 		arr[3][2] = b;
 		arr[3][1] = c;
 	}
-	if (a == 'U' && b == '-')
+	if (a == 'D')
 	{
 		int tmp[9];
 		FOR(i, 0, 8)
-			tmp[i] = arr[6][d[1][i]];
-		FOR(i, 1, 9)
-			arr[6][i] = tmp[i - 1];
-		int a = arr[4][3], b = arr[4][2], c = arr[4][1];
-		arr[4][3] = arr[3][3];
-		arr[4][2] = arr[3][2];
-		arr[4][1] = arr[3][1];
-
-		arr[3][3] = arr[1][3];
-		arr[3][2] = arr[1][2];
-		arr[3][1] = arr[1][1];
-
-		arr[1][3] = arr[2][3];
-		arr[1][2] = arr[2][2];
-		arr[1][1] = arr[2][1];
-
-		arr[2][3] = a;
-		arr[2][2] = b;
-		arr[2][1] = c;
-	}
-	if (a == 'D' && b == '+')
-	{
-		int tmp[9];
-		FOR(i, 0, 8)
-			tmp[i] = arr[5][d[0][i]];
+			tmp[i] = arr[5][d[i]];
 		FOR(i, 1, 9)
 			arr[5][i] = tmp[i - 1];
 		int a = arr[1][7], b = arr[1][8], c = arr[1][9];
@@ -105,36 +81,11 @@ void ans(char a, char b)
 		arr[3][8] = b;
 		arr[3][9] = c;
 	}
-	if (a == 'D' && b == '-')
+	if (a == 'F')
 	{
 		int tmp[9];
 		FOR(i, 0, 8)
-			tmp[i] = arr[5][d[1][i]];
-		FOR(i, 1, 9)
-			arr[5][i] = tmp[i - 1];
-		int a = arr[1][7], b = arr[1][8], c = arr[1][9];
-
-		arr[1][7] = arr[3][7];
-		arr[1][8] = arr[3][8];
-		arr[1][9] = arr[3][9];
-
-		arr[3][7] = arr[4][7];
-		arr[3][8] = arr[4][8];
-		arr[3][9] = arr[4][9];
-
-		arr[4][7] = arr[2][7];
-		arr[4][8] = arr[2][8];
-		arr[4][9] = arr[2][9];
-
-		arr[2][7] = a;
-		arr[2][8] = b;
-		arr[2][9] = c;
-	}
-	if (a == 'F' && b == '+')
-	{
-		int tmp[9];
-		FOR(i, 0, 8)
-			tmp[i] = arr[1][d[0][i]];
+			tmp[i] = arr[1][d[i]];
 		FOR(i, 1, 9)
 			arr[1][i] = tmp[i - 1];
 		int a = arr[6][7], b = arr[6][8], c = arr[6][9];
@@ -155,36 +106,11 @@ void ans(char a, char b)
 		arr[3][4] = b;
 		arr[3][1] = a;
 	}
-	if (a == 'F' && b == '-')
+	if (a == 'B')
 	{
 		int tmp[9];
 		FOR(i, 0, 8)
-			tmp[i] = arr[1][d[1][i]];
-		FOR(i, 1, 9)
-			arr[1][i] = tmp[i - 1];
-		int a = arr[6][7], b = arr[6][8], c = arr[6][9];
-
-		arr[6][7] = arr[3][1];
-		arr[6][8] = arr[3][4];
-		arr[6][9] = arr[3][7];
-
-		arr[3][1] = arr[5][3];
-		arr[3][4] = arr[5][2];
-		arr[3][7] = arr[5][1];
-
-		arr[5][3] = arr[2][9];
-		arr[5][2] = arr[2][6];
-		arr[5][1] = arr[2][3];
-
-		arr[2][9] = a;
-		arr[2][6] = b;
-		arr[2][3] = c;
-	}
-	if (a == 'B' && b == '+')
-	{
-		int tmp[9];
-		FOR(i, 0, 8)
-			tmp[i] = arr[4][d[0][i]];
+			tmp[i] = arr[4][d[i]];
 		FOR(i, 1, 9)
 			arr[4][i] = tmp[i - 1];
 		int a = arr[6][3], b = arr[6][2], c = arr[6][1];
@@ -205,36 +131,11 @@ void ans(char a, char b)
 		arr[2][4] = b;
 		arr[2][7] = c;
 	}
-	if (a == 'B' && b == '-')
+	if (a == 'L')
 	{
 		int tmp[9];
 		FOR(i, 0, 8)
-			tmp[i] = arr[4][d[1][i]];
-		FOR(i, 1, 9)
-			arr[4][i] = tmp[i - 1];
-		int a = arr[6][3], b = arr[6][2], c = arr[6][1];
-
-		arr[6][3] = arr[2][1];
-		arr[6][2] = arr[2][4];
-		arr[6][1] = arr[2][7];
-
-		arr[2][1] = arr[5][7];
-		arr[2][4] = arr[5][8];
-		arr[2][7] = arr[5][9];
-
-		arr[5][7] = arr[3][9];
-		arr[5][8] = arr[3][6];
-		arr[5][9] = arr[3][3];
-
-		arr[3][9] = a;
-		arr[3][6] = b;
-		arr[3][3] = c;
-	}
-	if (a == 'L' && b == '+')
-	{
-		int tmp[9];
-		FOR(i, 0, 8)
-			tmp[i] = arr[2][d[0][i]];
+			tmp[i] = arr[2][d[i]];
 		FOR(i, 1, 9)
 			arr[2][i] = tmp[i - 1];
 		int a = arr[6][1], b = arr[6][4], c = arr[6][7];
@@ -255,36 +156,11 @@ void ans(char a, char b)
 		arr[1][4] = b;
 		arr[1][7] = c;
 	}
-	if (a == 'L' && b == '-')
+	if (a == 'R')
 	{
 		int tmp[9];
 		FOR(i, 0, 8)
-			tmp[i] = arr[2][d[1][i]];
-		FOR(i, 1, 9)
-			arr[2][i] = tmp[i - 1];
-		int a = arr[6][1], b = arr[6][4], c = arr[6][7];
-
-		arr[6][1] = arr[1][1];
-		arr[6][4] = arr[1][4];
-		arr[6][7] = arr[1][7];
-
-		arr[1][1] = arr[5][1];
-		arr[1][4] = arr[5][4];
-		arr[1][7] = arr[5][7];
-
-		arr[5][1] = arr[4][9];
-		arr[5][4] = arr[4][6];
-		arr[5][7] = arr[4][3];
-
-		arr[4][9] = a;
-		arr[4][6] = b;
-		arr[4][3] = c;
-	}
-	if (a == 'R' && b == '+')
-	{
-		int tmp[9];
-		FOR(i, 0, 8)
-			tmp[i] = arr[3][d[0][i]];
+			tmp[i] = arr[3][d[i]];
 		FOR(i, 1, 9)
 			arr[3][i] = tmp[i - 1];
 		int a = arr[6][9], b = arr[6][6], c = arr[6][3];
@@ -305,31 +181,6 @@ void ans(char a, char b)
 		arr[4][4] = b;
 		arr[4][7] = c;
 	}
-	if (a == 'R' && b == '-')
-	{
-		int tmp[9];
-		FOR(i, 0, 8)
-			tmp[i] = arr[3][d[1][i]];
-		FOR(i, 1, 9)
-			arr[3][i] = tmp[i - 1];
-		int a = arr[6][9], b = arr[6][6], c = arr[6][3];
-
-		arr[6][9] = arr[4][1];
-		arr[6][6] = arr[4][4];
-		arr[6][3] = arr[4][7];
-
-		arr[4][1] = arr[5][9];
-		arr[4][4] = arr[5][6];
-		arr[4][7] = arr[5][3];
-
-		arr[5][9] = arr[1][9];
-		arr[5][6] = arr[1][6];
-		arr[5][3] = arr[1][3];
-
-		arr[1][9] = a;
-		arr[1][6] = b;
-		arr[1][3] = c;
-	}
 }
 int main()
 {
@@ -345,12 +196,19 @@ int main()
 		{
 			char a, b;
 			cin >> a >> b;
-			ans(a, b);
+			if (b == '-')
+			{
+				ans(a);
+				ans(a); 
+				ans(a);
+			}
+			else
+				ans(a);
 		}
 		FOR(i, 1, 9)
 		{
 			cout << arr[6][i];
-			if (i%3==0) cout << endl;
+			if (i % 3 == 0) cout << endl;
 		}
 	}
 	return 0;
