@@ -46,7 +46,8 @@ void ans(int a, int b, pii start)
 	FOR(i, 0, (int)v.size() - 1)
 	{
 		pii now = v[i];
-		if (now.first >= start.first && now.first <= start.first + a && now.second >= start.second && now.second <= start.second + b)
+		if (now.first >= start.first && now.first <= start.first + a 
+		    && now.second >= start.second && now.second <= start.second + b)
 			sum++;
 	}
 	res = max(res, sum);
