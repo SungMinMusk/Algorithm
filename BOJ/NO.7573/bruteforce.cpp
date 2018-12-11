@@ -54,7 +54,6 @@ void ans(int a, int b, pii start)
 }
 int main()
 {
-	//freopen("tc.txt", "r", stdin);
 	SWS;
 	cin >> n >> l >> m;
 	FOR(i, 1, m)
