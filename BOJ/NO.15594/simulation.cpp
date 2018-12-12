@@ -82,7 +82,7 @@ int main()
 				}
 			}	
 			cout << cnt;
-      break;
+      			break;
 		}
 	}
 	return 0;
