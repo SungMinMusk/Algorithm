@@ -50,7 +50,7 @@ int main()
 			cnt = 1;
 		}
 	}
-  // 같은 숫자만 들어오는 경우를 위함
+	// 같은 숫자만 들어오는 경우를 위함
 	if (cnt > maxv)
 		res = v[v.size() - 1];
 	cout << res;
