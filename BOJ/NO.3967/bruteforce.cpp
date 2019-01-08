@@ -38,11 +38,6 @@ char arr[7][11],temp[7][11];
 vector<char> per;
 bool visit[30];
 vii v;
-void copy(bool a)
-{
-	if(a) FOR(i, 1, 5) FOR(j, 1, 9) arr[i][j] = temp[i][j]; 
-	else FOR(i, 1, 5) FOR(j, 1, 9) temp[i][j] = arr[i][j]; 
-}
 bool check()
 {
 	if (arr[1][5] + arr[2][4] + arr[3][3] + arr[4][2] - 4 * 'A' != 22) return 0;
@@ -71,15 +66,11 @@ int main()
 	FOR(i, 'A', 'L') 
 		if (!visit[i - 'A'])
 			per.push_back(i);
-
-	copy(0);
 	do
 	{
-		copy(1);
 		FOR(i, 0, v.size() - 1)
 			arr[v[i].first][v[i].second] = per[i];
 		if (check()) break;
-
 	} while (next_permutation(per.begin(), per.end()));
 
 	FOR(i, 1, 5)
