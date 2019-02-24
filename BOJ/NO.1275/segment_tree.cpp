@@ -33,10 +33,7 @@ typedef vector<string> vs;
 typedef vector<pair<int, int > >vii;
 typedef set<int> seti;
 const int INF = 0x7fffffff;
-int dx[4] = { 1,0,-1,0 };
-int dy[4] = { 0,1,0,-1 };
-int dz[2] = { -1, 1 };
-/* ----- 함수 ----- */
+/* ----- -- ----- */
 const int _MAX = 400001;
 int n, q, vol=1;
 ll arr[_MAX];
