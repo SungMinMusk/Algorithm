@@ -54,13 +54,11 @@ int main() {
 		FOR(i, 1, f) {
 			string a, b;
 			cin >> a >> b;
-			if (par.find(a) == par.end())
-			{
+			if (par.find(a) == par.end()) {
 				par[a] = a;
 				cnt[a] = 1;
 			}
-			if (par.find(b) == par.end())
-			{
+			if (par.find(b) == par.end()) {
 				par[b] = b;
 				cnt[b] = 1;
 			}
