@@ -56,8 +56,7 @@ typedef struct Trie {
 		if (idx == s.length()) {
 			is_end = true;
 		}
-		else
-		{
+		else{
 			int to = s[idx] - '0';
 			if (!go[to]) go[to] = new Trie;
 			has_son = true;
