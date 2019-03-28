@@ -44,9 +44,9 @@ int ans(int here, int visit) {
 		if (!dist[here][1]) {
 			return INF;
 		}
-        else {
-		    return dist[here][1];
-        }
+       		else {
+		   	return dist[here][1];
+        	}
 	}
 	if (d[here][visit]) {
 		return d[here][visit];
