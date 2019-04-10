@@ -62,8 +62,8 @@ void _update(int idx, int value) {
 }
 int main() {
 	SWS;
-  //input
-  cin >> n;
+	//input
+	cin >> n;
 	FOR(i, 1, n) cin >> arr[i];
 
 	//init
